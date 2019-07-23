@@ -364,19 +364,19 @@ function Gpio() {
                 // Match the last 4 digits of the number following "Revision:"
                 var match = data.match(/Revision\s*:\s*[0-9a-f]*([0-9a-f]{4})/);
 
-                if (!match) {
-                    var errorMessage = 'Unable to match Revision in /proc/cpuinfo: ' + data;
-                    return reject(new Error(errorMessage));
-                }
+                //if (!match) {
+                //     var errorMessage = 'Unable to match Revision in /proc/cpuinfo: ' + data;
+                //     return reject(new Error(errorMessage));
+                // }
 
-                var revisionNumber = parseInt(match[1], 16);
-                var pinVersion = (revisionNumber < 4) ? 'v1' : 'v2';
+                // var revisionNumber = parseInt(match[1], 16);
+                // var pinVersion = (revisionNumber < 4) ? 'v1' : 'v2';
 
-                debug(
-                    'seen hardware revision %d; using pin mode %s',
-                    revisionNumber,
-                    pinVersion
-                );
+                // debug(
+                //     'seen hardware revision %d; using pin mode %s',
+                //     revisionNumber,
+                //     pinVersion
+                // );
 
                 // Create a list of valid BCM pins for this Raspberry Pi version.
                 // This will be used to validate channel numbers in getPinBcm
